@@ -1,0 +1,13 @@
+appVersion: v1
+kind: Pod
+metadata: 
+  name: retail-pod
+  namespace: akash-ns
+  labels:
+    app: retail
+spec:
+  containers:
+    - name: retail-container
+      image: mvnsakash/retail:latest
+      ports:
+        - containerPort: 3000
