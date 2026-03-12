@@ -2,20 +2,21 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ey-cart-deployment
+  namespace: akash-ns
   labels:
-    app: ey-cart1
+    app: cart
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: ey-cart1
+      app: web
   template:
     metadata:
       labels:
-        app: ey-cart1
+        app: web
     spec:
       containers:
-      - name: ey-cart1
+      - name: ey-cart-container
         image: muralisocial123/ey-cart:v1.1.0
         ports:
         - containerPort: 3000
