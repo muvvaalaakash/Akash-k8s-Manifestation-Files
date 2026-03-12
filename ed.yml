@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ey-cart-deployment
+  labels:
+    app: ey-cart
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: ey-cart
+  template:
+    metadata:
+      labels:
+        app: ey-cart
+    spec:
+      containers:
+      - name: ey-cart
+        image: muralisocial123/ey-cart:v1.1.0
+        ports:
+        - containerPort: 3000
