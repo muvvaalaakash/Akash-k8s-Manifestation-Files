@@ -3,19 +3,19 @@ kind: Deployment
 metadata:
   name: ey-cart-deployment
   labels:
-    app: ey-cart
+    app: ey-cart1
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: ey-cart
+      app: ey-cart1
   template:
     metadata:
       labels:
-        app: ey-cart
+        app: ey-cart1
     spec:
       containers:
-      - name: ey-cart
+      - name: ey-cart1
         image: muralisocial123/ey-cart:v1.1.0
         ports:
         - containerPort: 3000

@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: replicaSet
+metadata: 
+  name: retail-rs
+  namespace: akash-ns
+  labels:
+    app: retail
+spec: 
+  replicas: 3
+  selector:
+    matchLabels:
+      app: web
+  template:
+    metadata:
+      labels:
+        app: web
+    spec: 
+      containers:
+        
