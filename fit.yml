@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
        - name: fit-container
-         image: muralisocial123/transcation-app:v1.0.0
+         image: muralisocial123/transaction-app:v1.0.0
          ports: 
           - containerPort: 3000
 ---
