@@ -1,0 +1,27 @@
+appVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fit-deployment
+  namespace: akash-ns
+  labels:
+    app: fit
+spec:
+  replicas: 8
+  strategy:
+    type: RollingUpdate
+    rollingupdate:
+      maxUnavailable: 25%
+      maxSurge: 25%
+  selector: 
+    matchlabels:
+      app: fit
+  template:
+    metadata:
+      labels:
+        app: fit
+    spec:
+      containers:
+       - name: fit-container
+         image: muralisocial123/fitness-app:v1.0.1
+         ports: 
+          - containerPort: 3000
