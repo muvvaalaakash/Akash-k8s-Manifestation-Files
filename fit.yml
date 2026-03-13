@@ -9,7 +9,7 @@ spec:
   replicas: 8
   strategy:
     type: RollingUpdate
-    rollingupdate:
+    rollingUpdate:
       maxUnavailable: 25%
       maxSurge: 25%
   selector: 
