@@ -13,7 +13,7 @@ spec:
       maxUnavailable: 25%
       maxSurge: 25%
   selector: 
-    matchlabels:
+    matchLabels:
       app: fit
   template:
     metadata:
