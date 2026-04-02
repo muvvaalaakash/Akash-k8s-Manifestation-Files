@@ -1,0 +1,56 @@
+24/3/26
+Volumes
+1.EmptyDir 
+emptyDir = temporary shared storage inside a Pod
+To check emptyDir kubectl get pod mongodb-67dffb4854-ljpvk -o yaml | grep uid
+    uid: 2d471ea9-78a8-4dca-b7a4-99d5c06f420c
+  uid: 8dfe183c-d0f0-4ceb-b243-c0422590c794
+to check which pod is running on which node
+<kubectl get pods -o wide>
+in worker node 
+/var/lib/kubelet/pods/8dfe183c-d0f0-4ceb-b243-c0422590c794/volumes/emptyDir/
+# First we expose fit app and login to it and then to check the data we first use cmd kubectl get pods for pod name
+#then go inside pod kubectl exec -it podname -- bash
+# mongosh then show dbs and use fitness db, show collections then cmd db.user.find()
+later confirmation we restarted the pod then new pod created 
+again do same steps but we are not able to find db 
+because the database will be deleted when pod deleted/restarted
+
+Why we use it (real purpose)
+
+You use emptyDir when:
+
+Containers need to share files
+Data is temporary
+You don’t care if data is lost after restart
+You need fast local storage
+Real-world use cases (not theory)
+1. Sidecar logging (most common)
+
+Scenario:
+
+App writes logs
+Sidecar sends logs to ELK / Datadog
+
+2.Caching
+
+Scenario:
+
+API caches responses temporarily
+
+👉 Instead of hitting DB every time:
+
+Store in emptyDir
+Faster response
+
+When to use it (clear rule)
+
+Use emptyDir if:
+
+✔ Data is temporary
+✔ Data is only for one Pod
+✔ Containers need to share data
+✔ Speed matters
+
+emptyDir = temporary shared storage inside a Pod that disappears when the Pod dies.
+
