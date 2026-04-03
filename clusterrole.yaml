@@ -1,8 +1,8 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata: 
-  name: cluster-pod-manager
+  name: cluster-sa-demo
 rules:
 - apiGroups: [""]
   resources: ["nodes","namespaces","pods"]
-  verbs: ["get", "watch", "list"]
+  verbs: ["get", "watch", "list", "create", "update", "delete", "patch"]

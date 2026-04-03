@@ -7,7 +7,11 @@ subjects:
 - kind: User
   name: raj
   apiGroup: rbac.authorization.k8s.io
+- kind: ServiceAccount
+  name: my-sa
+  namespace: clahanstore
+  #apiGroup: rbac.authorization.k8s.io
 roleRef:
   kind: Role
-  name: pod-manager
+  name: sa-demo
   apiGroup: rbac.authorization.k8s.io
