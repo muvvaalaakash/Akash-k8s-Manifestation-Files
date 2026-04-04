@@ -15,24 +15,23 @@ spec:
       labels:
         app: nginx
     spec:
-      # nodeSelector:
-      #   env: testing   # THIS controls where pods run
       affinity:
         nodeAffinity:
-          requiredDuringSchedulingIgnoreDuringExection:
+          requiredDuringSchedulingIgnoredDuringExecution:
             nodeSelectorTerms:
-            - matchExpression:
+            - matchExpressions:
               - key: env
                 operator: In
-                value:
+                values:
                 - testing
+
           preferredDuringSchedulingIgnoredDuringExecution:
           - weight: 1
-            preferences:
-              matchExpression: 
+            preference:
+              matchExpressions:
               - key: envs
                 operator: In
-                value:
+                values:
                 - test
 
       containers:
