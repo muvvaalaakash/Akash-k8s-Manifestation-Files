@@ -32,7 +32,7 @@ spec:
               - key: envs
                 operator: In
                 values:
-                - testing
+                - testing # actual test for checking changed to testing
 
       containers:
       - name: nginx
