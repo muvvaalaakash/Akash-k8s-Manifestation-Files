@@ -16,7 +16,7 @@ spec:
         app: nginx
     spec:
       nodeSelector:
-        evn: testing   # THIS controls where pods run
+        env: testing   # THIS controls where pods run
       containers:
       - name: nginx
         image: nginx:latest
