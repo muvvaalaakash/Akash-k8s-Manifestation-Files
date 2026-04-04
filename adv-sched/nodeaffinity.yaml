@@ -23,7 +23,7 @@ spec:
               - key: env
                 operator: In
                 values:
-                - testing
+                - testin
 
           preferredDuringSchedulingIgnoredDuringExecution:
           - weight: 1
