@@ -15,7 +15,7 @@ spec:
         app: nginx
     spec:
       nodeSelector:
-        training: devops   # THIS controls where pods run
+        evn: testing   # THIS controls where pods run
       containers:
       - name: nginx
         image: nginx:latest
