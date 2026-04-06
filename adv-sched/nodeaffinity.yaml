@@ -15,25 +15,29 @@ spec:
       labels:
         app: nginx
     spec:
-      affinity:
-        nodeAffinity:
-          # requiredDuringSchedulingIgnoredDuringExecution:
-          #   nodeSelectorTerms:
-          #   - matchExpressions:
-          #     - key: env
-          #       operator: In
-          #       values:
-          #       - testing
+      # affinity:
+      #   nodeAffinity:
+      #     # requiredDuringSchedulingIgnoredDuringExecution:
+      #     #   nodeSelectorTerms:
+      #     #   - matchExpressions:
+      #     #     - key: env
+      #     #       operator: In
+      #     #       values:
+      #     #       - testing
 
-          preferredDuringSchedulingIgnoredDuringExecution:
-          - weight: 1
-            preference:
-              matchExpressions:
-              - key: envs
-                operator: In
-                values:
-                - testing # actual test for checking changed to testing
-
+      #     preferredDuringSchedulingIgnoredDuringExecution:
+      #     - weight: 1
+      #       preference:
+      #         matchExpressions:
+      #         - key: envs
+      #           operator: In
+      #           values:
+      #           - testing # actual test for checking changed to testing
+      tolerations:
+      - key: "key1"
+        operator: "Equal"
+        value: "value1"
+        effect: "NoSchedule"
       containers:
       - name: nginx
         image: nginx:latest
